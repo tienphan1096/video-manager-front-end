@@ -12,12 +12,6 @@ export default {
   name: 'App',
   components: {
     HelloWorld
-  },
-  mounted () {
-    this.$http.get('/scan')
-      .then(res => {
-        console.log(res)
-      })
   }
 }
 </script>
