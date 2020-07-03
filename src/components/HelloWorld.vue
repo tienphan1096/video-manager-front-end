@@ -3,20 +3,19 @@
     <b-card
       v-for="movie in movies"
       :key="movie.filename"
-      v-bind:title="movie.name"
-      v-bind:img-src="`http://localhost:3000${movie.thumbnail}`"
-      img-alt="Image"
-      img-top
-      tag="article"
       style="max-width: 20rem;"
       class="mb-2"
+      no-body
     >
-    <b-card-text :key="movie.filename">
-      {{movie.filename}}
-    </b-card-text>
-
-    <b-button :key="movie.filename" href="#" variant="primary">Go somewhere</b-button>
-  </b-card>
+      <a :href="`http://localhost:3000/assets/movies/${movie.filename}`">
+        <b-card-img top :src="`http://localhost:3000${movie.thumbnail}`" alt="Responsive image"></b-card-img>
+      </a>
+      <b-card-body :title="movie.name">
+        <b-card-text :key="movie.filename">
+          {{movie.filename}}
+        </b-card-text>
+      </b-card-body>
+    </b-card>
   </div>
 </template>
 

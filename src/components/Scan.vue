@@ -3,18 +3,21 @@
     <b-card
       v-for="file in files"
       :key="file.fileName"
-      v-bind:img-src="`http://localhost:3000${file.thumbnail}`"
-      img-alt="Image"
-      img-top
-      tag="article"
       style="max-width: 20rem;"
       class="mb-2"
+      no-body
     >
-      <b-card-text :key="file.fileName">
-      {{file.fileName}}
-      </b-card-text>
+      <a :href="`http://localhost:3000/assets/movies/${file.fileName}`">
+        <b-img :src="`http://localhost:3000${file.thumbnail}`" fluid alt="Responsive image"></b-img>
+      </a>
 
-      <b-button :key="file.fileName" @click="showModal(file)" variant="primary">Go somewhere</b-button>
+      <b-card-body>
+        <b-card-text>
+          {{file.fileName}}
+        </b-card-text>
+
+        <b-button :key="file.fileName" @click="showModal(file)" variant="primary">Add</b-button>
+      </b-card-body>
     </b-card>
     
     <b-modal
